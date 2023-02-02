@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Products from "../../db.json";
+import db from "../../db.json";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
@@ -10,7 +10,7 @@ export default () => {
       <Header title={"Products"} />
       <ProductsFlatList
         keyExtractor={(item, index: number) => index}
-        data={Products}
+        data={db}
         renderItem={({ item, index }) => <ProductCard {...item} />}
       />
     </Container>
