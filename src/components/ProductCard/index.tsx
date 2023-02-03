@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ImageProps } from "react-native";
 import {
   Container,
   ContentView,
@@ -18,10 +18,12 @@ export default function ProductCard(item: {
   description: String;
   rating: number;
   price: number;
+  filename: ImageProps["source"];
+
 }) {
   return (
     <Container>
-      <ProductImage source={require("../../../assets/images/45.jpg")} />
+      <ProductImage source={item?.filename} />
       <ContentView>
         <RowView>
           <TitleText>{item?.title}</TitleText>

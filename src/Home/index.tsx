@@ -1,24 +1,17 @@
 import React, { useEffect, useState } from "react";
-import db from "../../db.json";
+import { productsList } from "../../src/data/index";
 import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
-import { api } from "../services/Products";
 
 import { Container, ProductsFlatList } from "./styles";
 export default () => {
-  const getAllProductsFunction = () => {
-    api.getAllProducts();
-  };
-  useEffect(() => {
-    getAllProductsFunction();
-  }, []);
-
+  const [prodcuts, setProducts] = useState(productsList);
   return (
     <Container>
       <Header title={"Products"} />
       <ProductsFlatList
         keyExtractor={(item, index: number) => index}
-        data={db}
+        data={prodcuts}
         renderItem={({ item, index }) => <ProductCard {...item} />}
       />
     </Container>
